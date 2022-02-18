@@ -9,22 +9,20 @@ public class Persona {
     private String domicilio;
 
     // Atributo de clase
-    private static ArrayList<String> personas;
+    private static ArrayList<Persona> personas;
 
     // Constructores
-    public Persona() {
+    private Persona() {
         this.nombre = "Maria";
         this.edad = 25;
-        personas.add(this.nombre);
     }
 
-    public Persona(String nombre, String apellidos, int edad, String dni, String domicilio) {
+    private Persona(String nombre, String apellidos, int edad, String dni, String domicilio) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.edad = edad;
         this.dni = dni;
         this.domicilio = domicilio;
-        personas.add(this.nombre);
     }
 
     // Setters
@@ -63,5 +61,31 @@ public class Persona {
 
     public String getDomicilio() {
         return domicilio;
+    }
+
+    // Static methods
+    public static ArrayList<Persona> getPersonas() {
+        return personas;
+    }
+
+    public static Persona creaPersona() {
+        Persona persona = new Persona();
+        personas.add(persona);
+        return persona;
+    }
+
+    public static Persona creaPersona(String nombre, String apellidos, int edad, String dni, String domicilio) {
+        Persona persona = new Persona(nombre, apellidos, edad, dni, domicilio);
+        personas.add(persona);
+        return persona;
+    }
+
+    @Override
+    public String toString() {
+        return "Nombre: " + this.nombre +
+                "\nApepllidos: " + this.apellidos +
+                "\nEdad: " + this.edad +
+                "\nDNI: " + this.dni +
+                "\nDomiciliio: " + this.domicilio;
     }
 }
