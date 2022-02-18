@@ -9,7 +9,7 @@ public class Persona {
     private String domicilio;
 
     // Atributo de clase
-    private static ArrayList<Persona> personas;
+    private static ArrayList<Persona> personas = new ArrayList<>();
 
     // Constructores
     private Persona() {
