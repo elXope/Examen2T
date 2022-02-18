@@ -193,4 +193,35 @@ public class MusicOrganizer
             }
         }
     }
+
+    /**
+     * Encuentra las pistas que duren mas de cuatro minutos
+     * @return ArrayList con las pistas que duran mas de 4 minutos.
+     */
+    public ArrayList<Track> findLongTracks() {
+        ArrayList<Track> output = new ArrayList<>();
+        int minSeconds = 4*60;
+        for (int i = 0; i < this.tracks.size(); i++) {
+            if (this.tracks.get(i).getSeconds() > minSeconds) {
+                output.add(this.tracks.get(i));
+            }
+        }
+        return output;
+    }
+
+    /**
+     * Encuentra la pista mas corta. Si hay dos con la misma duracion, se queda con la primera que encuentra.
+     * @return Track mas corto.
+     */
+    public Track findShort() {
+        int indCorto = 0;
+        int segundosCorto = 2147483647;
+        for (int i = 1; i < this.tracks.size(); i++) {
+            if (this.tracks.get(i).getSeconds() < segundosCorto && this.tracks.get(i).getSeconds() > -1) {
+                indCorto = i;
+                segundosCorto = this.tracks.get(i).getSeconds();
+            }
+        }
+        return this.tracks.get(indCorto);
+    }
 }
