@@ -80,6 +80,16 @@ public class Persona {
         return persona;
     }
 
+    public static eliminarPersona(String nom) {
+        for (int i = 0; i < personas.size(); i++) {
+            if (personas.get(i).getNombre().equals(nom)){
+                personas.remove(i);
+                return;
+            }
+
+        }
+    }
+
     @Override
     public String toString() {
         return "Nombre: " + this.nombre +
